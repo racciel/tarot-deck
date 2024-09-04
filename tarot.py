@@ -51,14 +51,13 @@ class Deck:
         drawn = None
         try:
             drawn = random.sample(self.tarot_deck, number)
-            self.discard_cards(drawn=drawn)
         except ValueError:
             print("No more cards to draw!")
             if(len(self.tarot_deck) > 0):
                 drawn = random.sample(self.tarot_deck, len(self.tarot_deck))
-                self.discard_cards(drawn=drawn)
                 print("The rest of the deck:")
         if drawn:
+            self.discard_cards(drawn=drawn)
             return drawn
         else:
             return
